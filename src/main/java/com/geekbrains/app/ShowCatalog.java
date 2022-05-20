@@ -1,5 +1,10 @@
 package com.geekbrains.app;
 
+/**
+ * Rubanenko Maxim
+ * 18.05.2022
+ */
+
 import shop.Product;
 
 import javax.servlet.ServletException;
@@ -8,10 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/**
- * Rubanenko Maxim
- * 18.05.2022
- */
+
 public class ShowCatalog extends HttpServlet {
   @Override
   protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

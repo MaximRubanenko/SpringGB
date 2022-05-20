@@ -1,9 +1,9 @@
 package shop;
-
 /**
  * Rubanenko Maxim
  * 18.05.2022
  */
+
 public class Product {
   private int id;
   private String title;
