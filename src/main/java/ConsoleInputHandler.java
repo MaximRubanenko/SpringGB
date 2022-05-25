@@ -2,6 +2,7 @@
  * Rubanenko Maxim
  * 25.05.2022
  */
+
 public class ConsoleInputHandler {
   public enum Command {
     ADD, DEL, PRINT, RESET, QUIT

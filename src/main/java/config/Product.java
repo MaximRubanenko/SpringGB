@@ -1,5 +1,4 @@
 package config;
-
 /**
  * Rubanenko Maxim
  * 24.05.2022

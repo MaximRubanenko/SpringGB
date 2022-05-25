@@ -3,7 +3,6 @@ package config;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
-
 /**
  * Rubanenko Maxim
  * 24.05.2022

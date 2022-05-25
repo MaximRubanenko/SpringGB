@@ -5,7 +5,6 @@ import config.ProductRepository;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.util.Scanner;
-
 /**
  * Rubanenko Maxim
  * 24.05.2022
