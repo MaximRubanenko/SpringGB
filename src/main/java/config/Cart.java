@@ -5,7 +5,6 @@ import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
 import java.util.Map;
-
 /**
  * Rubanenko Maxim
  * 24.05.2022
