@@ -34,4 +34,13 @@ public class ProductsRepository {
     public Product findById(Long id) {
         return products.stream().filter(s -> s.getId().equals(id)).findFirst().get();
     }
+    public void increaseCost(Long id){
+        products.stream().filter(s->s.getId().equals(id)).findFirst().get().setCost(
+            products.stream().filter(s->s.getId().equals(id)).findFirst().get().getCost()+1);
+    }
+
+    public void decreaseCost(Long id){
+        products.stream().filter(s->s.getId().equals(id)).findFirst().get().setCost(
+            products.stream().filter(s->s.getId().equals(id)).findFirst().get().getCost()-1);
+    }
 }

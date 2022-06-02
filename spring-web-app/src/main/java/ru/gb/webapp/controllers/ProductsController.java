@@ -16,6 +16,8 @@ public class ProductsController {
         this.productsService = productsService;
     }
 
+
+
     // GET http://localhost:8189/app/show_all
     @GetMapping(value = "/show_all")
     public String showProductsPage(Model model){
@@ -42,4 +44,18 @@ public class ProductsController {
         productsService.save(new Product(id, name, cost));
         return "redirect:/show_all";
     }
+    // GET http://localhost:8189/app/show/{id}
+    @GetMapping(value = "/inc/{id}")
+    public String increaseCost(Model model, @PathVariable Long id){
+        model.addAttribute("product", productsService.increaseCost(id));
+        return "redirect:/show_all";
+    }
+
+    // GET http://localhost:8189/app/show/{id}
+    @GetMapping(value = "/dec/{id}")
+    public String decreaseCost(Model model, @PathVariable Long id){
+        model.addAttribute("product", productsService.decreaseCost(id));
+        return "redirect:/show_all";
+    }
+
 }
