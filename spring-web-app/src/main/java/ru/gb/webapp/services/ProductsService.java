@@ -9,22 +9,30 @@ import java.util.List;
 
 @Service
 public class ProductsService {
-    private ProductsRepository studentsRepository;
+    private ProductsRepository productsRepository;
 
     @Autowired
-    public ProductsService(ProductsRepository studentsRepository) {
-        this.studentsRepository = studentsRepository;
+    public ProductsService(ProductsRepository productsRepository) {
+        this.productsRepository = productsRepository;
     }
 
     public List<Product> findAll() {
-        return studentsRepository.findAll();
+        return productsRepository.findAll();
     }
 
     public void save(Product student) {
-        studentsRepository.save(student);
+        productsRepository.save(student);
     }
 
     public Product findById(Long id) {
-        return studentsRepository.findById(id);
+        return productsRepository.findById(id);
+    }
+    public Object increaseCost(Long id) {
+        productsRepository.increaseCost(id);
+        return null;
+    }
+    public Object decreaseCost(Long id) {
+        productsRepository.decreaseCost(id);
+        return null;
     }
 }
