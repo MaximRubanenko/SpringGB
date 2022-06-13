@@ -3,6 +3,7 @@ package ru.max.crud;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import ru.max.handlers.SessionHandler;
 
 import java.util.List;
 
@@ -18,44 +19,48 @@ import java.util.List;
  */
 
 public class ProductDao {
-  private static SessionFactory factory;
+  //  private static SessionFactory factory;
 
-  public static void main(String[] args) {
-    try {
-      System.out.println("Start");
-      factory = new Configuration()
-          .configure("config/crud/hibernate.cfg.xml")
-          .buildSessionFactory();
+//  public static void main(String[] args) {
+//    try {
+//      sessionHandler();
+//
+////      deleteById(4L);
+//      System.out.println(findById(2L).toString());
+//      for (Product p : findAll()) {
+//        System.out.println(p.toString());
+//      }
+//
+//    } catch (Exception e) {
+//      e.printStackTrace();
+//    } finally {
+//      shutdown();
+//    }
+//  }
 
-      deleteById(4L);
-      System.out.println(findById(2L).toString());
-      for (Product p : findAll()) {
-        System.out.println(p.toString());
-      }
-
-    } catch (Exception e) {
-      e.printStackTrace();
-    } finally {
-      shutdown();
-    }
-  }
-
-
-  private static void shutdown() {
-    factory.close();
-  }
-
-  public static void deleteById(Long id) {
-    try (Session session = factory.getCurrentSession()) {
-      session.beginTransaction();
-      Product product = session.get(Product.class, id);
-      session.delete(product);
-      session.getTransaction().commit();
-    }
-  }
+//  private static void sessionHandler() {
+//    System.out.println("Start");
+//    factory = new Configuration()
+//        .configure("config/crud/hibernate.cfg.xml")
+//        .buildSessionFactory();
+//  }
 
 
-  public static List<Product> findAll() {
+//  private static void shutdown() {
+//    factory.close();
+//  }
+//
+//  public static void deleteById(Long id) {
+//    try (Session session = factory.getCurrentSession()) {
+//      session.beginTransaction();
+//      Product product = session.get(Product.class, id);
+//      session.delete(product);
+//      session.getTransaction().commit();
+//    }
+//  }
+
+
+  public static List<Product> findAll(SessionFactory factory) {
     try (Session session = factory.getCurrentSession()) {
       session.beginTransaction();
       List<Product> productsAll = session.createQuery("from Product").getResultList();
@@ -63,23 +68,23 @@ public class ProductDao {
       return productsAll;
     }
   }
-
-  public static Product findById(Long id) {
-    try (Session session = factory.getCurrentSession()) {
-      session.beginTransaction();
-      Product product = session.get(Product.class, id);
-      session.getTransaction().commit();
-
-      return product;
-    }
-  }
-
-  public static void saveOrUpdate(Product p) {
-
-    try (Session session = factory.getCurrentSession()) {
-      session.beginTransaction();
-      //
-      session.getTransaction().commit();
-    }
-  }
+//
+//  public static Product findById(Long id) {
+//    try (Session session = factory.getCurrentSession()) {
+//      session.beginTransaction();
+//      Product product = session.get(Product.class, id);
+//      session.getTransaction().commit();
+//
+//      return product;
+//    }
+//  }
+//
+//  public static void saveOrUpdate(Product p) {
+//
+//    try (Session session = factory.getCurrentSession()) {
+//      session.beginTransaction();
+//      //
+//      session.getTransaction().commit();
+//    }
+//  }
 }
